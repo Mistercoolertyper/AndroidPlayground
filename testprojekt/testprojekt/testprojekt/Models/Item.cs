@@ -1,4 +1,5 @@
 ﻿using System;
+using Xamarin.Essentials;
 
 namespace testprojekt.Models
 {
@@ -7,5 +8,6 @@ namespace testprojekt.Models
         public string Id { get; set; }
         public string Text { get; set; }
         public string Description { get; set; }
+
     }
 }

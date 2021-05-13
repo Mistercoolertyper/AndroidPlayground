@@ -45,6 +45,8 @@
                         Command="{Binding OpenWebCommand}"
                         BackgroundColor="{StaticResource Primary}"
                         TextColor="White" />
+
+                <Button Clicked="Button_Clicked" TextColor="White" Text="do something fancy"></Button>
             </StackLayout>
         </ScrollView>
     </Grid>

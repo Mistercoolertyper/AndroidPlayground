@@ -3,24 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using testprojekt.Models;
+using Xamarin.Essentials;
+using System.Linq;
 
 namespace testprojekt.Services
 {
     public class MockDataStore : IDataStore<Item>
     {
-        readonly List<Item> items;
+        readonly List<Item> items = new List<Item>();
 
         public MockDataStore()
         {
-            items = new List<Item>()
-            {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." }
-            };
+          
+         
         }
 
         public async Task<bool> AddItemAsync(Item item)
@@ -54,6 +49,15 @@ namespace testprojekt.Services
 
         public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)
         {
+            var locales = await TextToSpeech.GetLocalesAsync();
+            items.Clear();
+            items.AddRange(locales.Select(i => new Item
+            {
+                Id = Guid.NewGuid().ToString(),
+                Text = i.Name,
+                Description = i.Language,
+            }));
+
             return await Task.FromResult(items);
         }
     }
