@@ -6,9 +6,23 @@
              mc:Ignorable="d"
              x:Class="testprojekt.Views.LoginPage"
              Shell.NavBarIsVisible="False">
-    <ContentPage.Content>
-        <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
-            <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
-        </StackLayout>
-    </ContentPage.Content>
+
+    <StackLayout VerticalOptions="Center" Margin="20">
+        <Entry x:Name="EmailIDEntry"
+               Placeholder="Email ID" Keyboard="Email"
+               TextColor="Cyan"
+               BackgroundColor="Gray"/>
+        <Entry x:Name="PasswordEntry" IsPassword="True"
+               Placeholder="Password"
+               BackgroundColor="Gray"/>
+        <Button x:Name="LoginButton"
+                Margin="0,50,0,0"
+                Text="Login"
+                Style="{StaticResource PrimaryButton}" />
+        <Button x:Name="RegisterButton"
+                Text="Register"
+                HorizontalOptions="End"
+                BackgroundColor="Transparent"
+                TextColor="{StaticResource PrimaryColor}"/>
+    </StackLayout>
 </ContentPage>

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using testprojekt.Models;
 using Xamarin.Essentials;
-using System.Linq;
 
 namespace testprojekt.Services
 {
