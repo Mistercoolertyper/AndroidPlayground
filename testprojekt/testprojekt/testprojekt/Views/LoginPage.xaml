@@ -7,22 +7,11 @@
              x:Class="testprojekt.Views.LoginPage"
              Shell.NavBarIsVisible="False">
 
-    <StackLayout VerticalOptions="Center" Margin="20">
-        <Entry x:Name="EmailIDEntry"
-               Placeholder="Email ID" Keyboard="Email"
-               TextColor="Cyan"
-               BackgroundColor="Gray"/>
-        <Entry x:Name="PasswordEntry" IsPassword="True"
-               Placeholder="Password"
-               BackgroundColor="Gray"/>
-        <Button x:Name="LoginButton"
-                Margin="0,50,0,0"
-                Text="Login"
-                Style="{StaticResource PrimaryButton}" />
-        <Button x:Name="RegisterButton"
-                Text="Register"
-                HorizontalOptions="End"
-                BackgroundColor="Transparent"
-                TextColor="{StaticResource PrimaryColor}"/>
+    <StackLayout>
+        <Label x:Name="Lbl_Username" Text="Username" />
+        <Entry x:Name="Entry_Username" Placeholder="Username" />
+        <Label x:Name="Lbl_Password" Text="Password" />
+        <Entry x:Name="Entry_Password" Placeholder="Password" />
+        <Button x:Name="Btn_Signin" Text="Sign in" Clicked="SignInPrecedure" />
     </StackLayout>
 </ContentPage>
