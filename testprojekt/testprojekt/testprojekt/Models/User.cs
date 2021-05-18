@@ -11,18 +11,28 @@ namespace testprojekt.Models
         public string Password { get; set; }
 
         public User() { }
-        public User(string Username, string Password) 
+        public User(string Username, string Password)
         {
             this.Username = Username;
             this.Password = Password;
         }
 
-        public bool CheckInformation() 
+        public bool CheckInformation()
         {
-            if (!this.Username.Equals("") && !Password.Equals(""))
-                    return true;
-            else
-                return false;
+            var isUserNameOk = String.IsNullOrWhiteSpace(Username) ? false : Username.Equals("Leon", StringComparison.InvariantCultureIgnoreCase);
+            var isPassWordOk = String.IsNullOrWhiteSpace(Password) ? false : Password.Equals("Test", StringComparison.CurrentCulture);
+
+            //var isOk = false;
+            //if (String.IsNullOrWhiteSpace(Username))
+            //{
+            //    isOk = false;
+            //}
+            //else
+            //{
+            //    isOk = Username.Equals("Leon", StringComparison.InvariantCultureIgnoreCase);
+            //}
+
+            return isUserNameOk && isPassWordOk;
         }
     }
 }

@@ -18,16 +18,17 @@ namespace testprojekt.Views
             InitializeComponent();
         }
 
-        void SignInPrecedure(object sender, EventArgs e) 
+        async void SignInPrecedure(object sender, EventArgs e) 
         {
             User user = new User(Entry_Username.Text, Entry_Password.Text);
             if (user.CheckInformation())
             {
-                DisplayAlert("Login", "Login Success", "OK");
+               await DisplayAlert("Login", "Login Success", "OK");
+                await Shell.Current.GoToAsync(nameof(AboutPage));
             }
             else 
             {
-                DisplayAlert("Login", "Login Not Correct, empty username or password.", "OK");
+                await DisplayAlert("Login", "Login Not Correct, Invalid username or Password.", "OK");
             }
         }
     }
